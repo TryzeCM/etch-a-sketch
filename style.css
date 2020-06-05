@@ -1,0 +1,13 @@
+#container {
+    border: solid 1px blue;
+    width: 500px;
+    height: 500px;
+    display: grid;
+    grid-template-columns: repeat(50, 10px);
+    grid-template-rows: repeat(50, 10px);
+    background-color: red;
+}
+
+.drawn {
+    background-color: black;
+}
