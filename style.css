@@ -1,10 +1,11 @@
 #container {
+    margin: auto; 
     border: solid 1px blue;
     width: 500px;
     height: 500px;
     display: grid;
-    grid-template-columns: repeat(50, 10px);
-    grid-template-rows: repeat(50, 10px);
+    grid-template-columns: repeat(100, 1fr);
+    grid-template-rows: repeat(100, 1fr);
     background-color: red;
 }
 
