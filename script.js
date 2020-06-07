@@ -1,7 +1,4 @@
 /**********************TO DO ****************************/
-//make sure prompt closes
-//size must not be larger than 100
-//clear only button
 //random colors
 
 
@@ -22,40 +19,49 @@ interactables.forEach((interactable) => {
     });
 });
 
-//Clears Grid
+//Erase Button
+let eraseButton = document.querySelector("#erase");
+eraseButton.addEventListener("click", clearGrid);
+
+//Resize Button
 let resizeButton = document.querySelector("#resize");
 resizeButton.addEventListener("click", () => {
-    interactables.forEach((interactable) => {
-        interactable.removeAttribute("class");
-    });
+    clearGrid();
 
     let input = getInput("Enter a size");
     console.log(typeof(input) + ": " + input);
     
 //Checks if input is valid
-    if (isNaN(input)) {
-
-        while(isNaN(input)) {
+    if (input !== null && isNaN(parseInt(input))) {
+        while(input !== null && isNaN(parseInt(input))) {
             input = getInput("Please enter a Number.");
             console.log(input);
         }
+        
+  
+    } else if (input > 100) {
+        while (input > 100) {
+            input = getInput("Your number must be less than 100");
+        }
+        
     }
+
     resizeGrid(input);
-/*******************************TO DO*********************************
-    
- */
 });
 
 function getInput(text) {
     let input = prompt(text);
-    return parseInt(input);
+    return input;
 }
-
-let test = document.querySelector("#change");
-test.setAttribute("style", "background-color: purple;");
 
 function resizeGrid(size) {
     let container = document.querySelector("#container");
     container.setAttribute("style", `grid-template-columns: repeat(${size}, 1fr);
                                     grid-template-rows: repeat(${size}, 1fr)`);
+}
+
+function clearGrid() {
+    interactables.forEach((interactable) =>{
+        interactable.removeAttribute("class");
+    });
 }
