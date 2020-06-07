@@ -13,15 +13,13 @@ for (let i = 0; i <10000; i++) {
 
 //Draw on the Grid
 let interactables = document.querySelectorAll(".interactable");
-interactables.forEach((interactable) => {
-    interactable.addEventListener("mouseenter", () => {
-        interactable.setAttribute("class", "drawn")
-    });
-});
+let color = false;
+interactables.forEach(draw);
 
 //Erase Button
 let eraseButton = document.querySelector("#erase");
 eraseButton.addEventListener("click", clearGrid);
+
 
 //Resize Button
 let resizeButton = document.querySelector("#resize");
@@ -63,5 +61,11 @@ function resizeGrid(size) {
 function clearGrid() {
     interactables.forEach((interactable) =>{
         interactable.removeAttribute("class");
+    });
+}
+
+function draw(interactable) {
+    interactable.addEventListener("mouseenter", () => {
+        interactable.setAttribute("class", "drawn");
     });
 }
