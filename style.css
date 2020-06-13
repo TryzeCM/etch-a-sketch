@@ -1,6 +1,7 @@
 body {
     background-image: url('https://cdn.pixabay.com/photo/2019/03/20/03/39/draw-4067546_960_720.png');
     background-size: 30%;
+    background-color: rgb(243, 243, 243);
     background-position: bottom right;
     background-repeat: no-repeat;
 }   
@@ -8,7 +9,7 @@ body {
 #container {
     margin-right: 23%;
     border: solid rgba(0, 0, 0, 0.281) 1px;
-    background-color: #eeeeee;
+    background-color: white;
     border-radius: 1px;
     width: 500px;
     height: 500px;
@@ -59,14 +60,14 @@ body {
 
 #black {
     color: white;
-    border: solid white 1px;
+    border: none;
     background-color: black;
 }
 
 #color {
     color: white;
     background-image: linear-gradient(135deg, #FF0000, #FF7F00, #FFFF00, #00FF00, #0000FF, #4B0082, #9400D3);
-    border: solid white 1px;
+    border: none;
 }
 
 .drawn {
