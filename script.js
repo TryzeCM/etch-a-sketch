@@ -1,7 +1,3 @@
-/**********************TO DO ****************************/
-//random colors
-
-
 //Fill the Grid
 for (let i = 0; i <10000; i++) {
     let container = document.querySelector("#container");
@@ -10,27 +6,28 @@ for (let i = 0; i <10000; i++) {
     container.appendChild(div);
 }
 
+let interactables = document.querySelectorAll(".interactable");
+let colorButton = document.querySelector("#color");
+let blackButton = document.querySelector("#black");
+let eraseButton = document.querySelector("#erase");
+let resizeButton = document.querySelector("#resize");
 
+let color = false;
 
 //Draw on the Grid
-let interactables = document.querySelectorAll(".interactable");
 interactables.forEach(draw);
 
-
 //Color Button
-let colorButton = document.querySelector("#color");
-let color = false;
-colorButton.addEventListener("click", changeColor);
+colorButton.addEventListener("click", changeToColor);
 
-
+//Black Button
+blackButton.addEventListener("click", changeToBlack);
 
 //Erase Button
-let eraseButton = document.querySelector("#erase");
 eraseButton.addEventListener("click", clearGrid);
 
 
 //Resize Button
-let resizeButton = document.querySelector("#resize");
 resizeButton.addEventListener("click", () => {
     clearGrid();
 
@@ -39,12 +36,12 @@ resizeButton.addEventListener("click", () => {
     
 //Checks if input is valid
     if (input !== null && isNaN(parseInt(input))) {
-        while(input !== null && isNaN(parseInt(input))) {
+       
+       while(input !== null && isNaN(parseInt(input))) {
             input = getInput("Please enter a Number.");
             console.log(input);
         }
         
-  
     } else if (input > 100) {
         while (input > 100) {
             input = getInput("Your number must be less than 100");
@@ -69,6 +66,7 @@ function resizeGrid(size) {
 function clearGrid() {
     interactables.forEach((interactable) =>{
         interactable.removeAttribute("class");
+        interactable.removeAttribute("style");
     });
 }
 
@@ -84,7 +82,13 @@ function draw(interactable) {
     });
 }
 
-function changeColor() {
+function changeToColor() {
     color = true;
     interactables.forEach(draw);
 }
+
+function changeToBlack() {
+    color = false;
+    interactables.forEach(draw);
+}
+
