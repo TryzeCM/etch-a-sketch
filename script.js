@@ -8,13 +8,21 @@ for (let i = 0; i <10000; i++) {
     let div = document.createElement("div");
     div.setAttribute("class", "interactable");
     container.appendChild(div);
-
 }
+
+
 
 //Draw on the Grid
 let interactables = document.querySelectorAll(".interactable");
-let color = false;
 interactables.forEach(draw);
+
+
+//Color Button
+let colorButton = document.querySelector("#color");
+let color = false;
+colorButton.addEventListener("click", changeColor);
+
+
 
 //Erase Button
 let eraseButton = document.querySelector("#erase");
@@ -66,6 +74,17 @@ function clearGrid() {
 
 function draw(interactable) {
     interactable.addEventListener("mouseenter", () => {
-        interactable.setAttribute("class", "drawn");
+        if (!color) {
+            interactable.setAttribute("class", "drawn");
+            return;
+        } 
+        randomColor = Math.floor(Math.random() * 255);
+        interactable.setAttribute("style", `background-color: hsl(${randomColor}, 100%, 50%)`);
+        
     });
+}
+
+function changeColor() {
+    color = true;
+    interactables.forEach(draw);
 }
