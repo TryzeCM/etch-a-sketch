@@ -1,12 +1,21 @@
+body {
+    background-color: darkgrey;
+}
+
 #container {
     margin: auto; 
-    border: solid 1px blue;
+    border: solid 5px rgb(194, 8, 8);
+    border-radius: 1%;
     width: 500px;
     height: 500px;
     display: grid;
-    grid-template-columns: repeat(100, 1fr);
-    grid-template-rows: repeat(100, 1fr);
-    background-color: red;
+    grid-template-columns: repeat(50, 1fr);
+    grid-template-rows: repeat(50, 1fr);
+    background-color: lightgrey;
+}
+
+#container:hover {
+    border-color: limegreen; 
 }
 
 .drawn {
